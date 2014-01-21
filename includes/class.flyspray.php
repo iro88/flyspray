@@ -633,8 +633,8 @@ class Flyspray
 
 	$email_address = $username;  //handle multiple email addresses
         $temp = $db->Query("SELECT id FROM {user_emails} WHERE email_address = ?",$email_address);
-	$user_id = $db->FetchRow($temp);
-	$user_id = $user_id[id];
+	$aResult = $db->FetchRow($temp);
+	$user_id = $aResult['id'];
       	
 	$result = $db->Query("SELECT  uig.*, g.group_open, u.account_enabled, u.user_pass,
                                         lock_until, login_attempts
